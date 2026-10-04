@@ -136,7 +136,7 @@ function App() {
           {menuOpen ? <X /> : <Menu />}
         </button>
         <Link to="/" className="brand" aria-label="Growth Planning home">
-          <span className="brand-mark">R</span>
+          <span className="brand-mark">N</span>
           <span>
             <strong>Neighbourhood Growth Planning Agent</strong>
             <small>Consumer Growth • Concept Demonstration</small>
