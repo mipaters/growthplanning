@@ -1,6 +1,6 @@
-# Rogers Neighbourhood Growth Planning Agent
+# Neighbourhood Growth Planning Agent
 
-A responsive, boardroom-ready concept demonstration showing how an agentic decision system could combine neighbourhood market, network, commercial, competitive, demographic, and financial signals to recommend where Rogers should build, market, sell, defend, and grow next.
+A responsive, boardroom-ready concept demonstration showing how an agentic decision system could combine neighbourhood market, network, commercial, competitive, demographic, and financial signals to recommend where a communications service provider should build, market, sell, defend, and grow next.
 
 ## Local setup
 
@@ -47,8 +47,8 @@ The primary interactive journey is:
 
 The demonstration is a static React and TypeScript application built with Vite, Tailwind CSS, Recharts, Lucide React, and React Router. It requires no backend, database, authentication, API keys, or secrets. All data and calculations are deterministic and stored locally.
 
-The architecture page illustrates a potential Microsoft implementation using Azure Static Web Apps, Microsoft Fabric and OneLake, Azure Machine Learning, Microsoft Foundry, Azure OpenAI, Azure integration services, and Microsoft security and governance controls. All Rogers integrations shown are proposed only.
+The architecture page illustrates a potential Microsoft implementation using Azure Static Web Apps, Microsoft Fabric and OneLake, Azure Machine Learning, Microsoft Foundry, Azure OpenAI, Azure integration services, and Microsoft security and governance controls. All enterprise integrations shown are proposed only.
 
 ## Synthetic-data disclaimer
 
-Concept demonstration using synthetic neighbourhood, customer, network, demographic, competitive, financial, and market data. Recommendations, financial values, coverage information, forecasts, and agent actions are simulated and are not Rogers forecasts or production decisions.
+Concept demonstration using synthetic neighbourhood, customer, network, demographic, competitive, financial, and market data. Recommendations, financial values, coverage information, forecasts, and agent actions are simulated and are not company forecasts or production decisions.

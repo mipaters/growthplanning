@@ -27,7 +27,7 @@ export interface Neighbourhood {
   network: number;
   competitive: number;
   penetration: number;
-  igniteOpportunity: number;
+  internetOpportunity: number;
   wirelessOpportunity: number;
   mobileAttach: number;
   capitalEfficiency: number;

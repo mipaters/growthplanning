@@ -100,8 +100,8 @@ const navItems = [
 const layerKeys: { value: keyof Neighbourhood; label: string }[] = [
   { value: "score", label: "Composite growth opportunity" },
   { value: "growth", label: "Housing growth" },
-  { value: "penetration", label: "Rogers household penetration" },
-  { value: "igniteOpportunity", label: "Ignite opportunity" },
+  { value: "penetration", label: "Provider household penetration" },
+  { value: "internetOpportunity", label: "Internet opportunity" },
   { value: "wirelessOpportunity", label: "Wireless opportunity" },
   { value: "mobileAttach", label: "Mobile attach potential" },
   { value: "competitive", label: "Competitive threat" },
@@ -135,11 +135,11 @@ function App() {
         <button className="icon-button mobile-menu" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">
           {menuOpen ? <X /> : <Menu />}
         </button>
-        <Link to="/" className="brand" aria-label="Rogers Growth Planning home">
+        <Link to="/" className="brand" aria-label="Growth Planning home">
           <span className="brand-mark">R</span>
           <span>
             <strong>Neighbourhood Growth Planning Agent</strong>
-            <small>Rogers Consumer • Concept Demonstration</small>
+            <small>Consumer Growth • Concept Demonstration</small>
           </span>
         </Link>
         <div className="topbar-actions">
@@ -184,7 +184,7 @@ function App() {
         </Routes>
       </main>
       <footer>
-        <strong>Rogers Neighbourhood Growth Planning Agent</strong>
+        <strong>Neighbourhood Growth Planning Agent</strong>
         <span>{disclaimer}</span>
       </footer>
     </div>
@@ -231,7 +231,7 @@ function Dashboard() {
     <>
       <PageHeader
         eyebrow="Executive Growth Dashboard"
-        title="Find Rogers’ Next Growth Market"
+        title="Find the Next Growth Market"
         description="Agentic AI brings network, market, customer, demographic, competitive, and financial signals together to recommend the next best neighbourhood growth action."
         actions={<button className="primary-button" onClick={() => navigate("/recommendation")}><Sparkles size={17} /> Review top recommendation</button>}
       />
@@ -248,7 +248,7 @@ function Dashboard() {
         <div>
           <span className="eyebrow">Growth Planning Supervisor • Executive brief</span>
           <h2>Twenty-seven neighbourhoods meet the current growth threshold.</h2>
-          <p>The strongest combined opportunity is in <strong>Brookfield North</strong>, where new housing, limited Rogers penetration, strong family formation, high mobile attach potential, and planned fibre availability create an estimated five-year growth opportunity of <strong>$12.8M</strong>.</p>
+          <p>The strongest combined opportunity is in <strong>Brookfield North</strong>, where new housing, limited provider penetration, strong family formation, high mobile attach potential, and planned fibre availability create an estimated five-year growth opportunity of <strong>$12.8M</strong>.</p>
         </div>
         <button className="secondary-button" onClick={() => navigate("/neighbourhood")}>Open evidence <ChevronRight size={16} /></button>
       </Card>
@@ -326,7 +326,7 @@ function SignalRadar() {
         <label>Opportunity or risk<select value={kind} onChange={(e) => setKind(e.target.value)}><option>All</option><option>Opportunity</option><option>Risk</option></select></label>
         <label>Confidence<select><option>All confidence</option><option>80% and above</option><option>90% and above</option></select></label>
         <label>Geography<select><option>All geographies</option>{neighbourhoods.map((n) => <option key={n.id}>{n.name}</option>)}</select></label>
-        <label>Product<select><option>All products</option><option>Ignite</option><option>Wireless</option><option>Wi-Fi</option></select></label>
+        <label>Product<select><option>All products</option><option>Internet</option><option>Wireless</option><option>Wi-Fi</option></select></label>
       </div>
       <div className="signal-layout">
         <Card className="signal-feed">
@@ -350,7 +350,7 @@ function SignalRadar() {
             <Metric label="Product" value={selected.product} />
           </div>
           <DetailBlock title="Why it matters" text={selected.why} />
-          <DetailBlock title="Potential Rogers action" text={selected.action} />
+          <DetailBlock title="Potential provider action" text={selected.action} />
           <DetailBlock title="Privacy and permitted use" text={selected.privacy} icon={<ShieldCheck size={17} />} />
           <div className="related">
             <strong>Related signals</strong>
@@ -430,7 +430,7 @@ function OpportunityMap() {
             <ScoreBar label="Growth" value={selected.growth} />
             <ScoreBar label="Network readiness" value={selected.network} />
             <ScoreBar label="Competitive intensity" value={selected.competitive} />
-            <ScoreBar label="Product opportunity" value={selected.igniteOpportunity} />
+            <ScoreBar label="Product opportunity" value={selected.internetOpportunity} />
             <ScoreBar label="Confidence" value={selected.confidence} />
           </div>
           <div className="detail-grid">
@@ -460,10 +460,10 @@ function DeepDive() {
     { year: "2028", households: 8510 }, { year: "2029", households: 9000 }, { year: "2030", households: 9250 },
   ].map((d) => ({ ...d, households: Math.round(d.households * selected.households / 6850) }));
   const penetration = [
-    { product: "Internet", Rogers: selected.penetration, Benchmark: 56 },
-    { product: "Wireless", Rogers: 42, Benchmark: 61 },
-    { product: "Mobile attach", Rogers: 37, Benchmark: 54 },
-    { product: "Premium Wi-Fi", Rogers: 21, Benchmark: 38 },
+    { product: "Internet", Current: selected.penetration, Benchmark: 56 },
+    { product: "Wireless", Current: 42, Benchmark: 61 },
+    { product: "Mobile attach", Current: 37, Benchmark: 54 },
+    { product: "Premium Wi-Fi", Current: 21, Benchmark: 38 },
   ];
   const evidence = [
     ["Observed signal", "Municipal planning data indicates 2,400 planned homes.", "Public • 96% confidence"],
@@ -476,14 +476,14 @@ function DeepDive() {
 
   return (
     <>
-      <PageHeader eyebrow="Neighbourhood Deep Dive" title={selected.name} description="A complete, explainable view of demand, Rogers position, feasibility, economics, evidence, risk, and assumptions." actions={<><select value={selectedId} onChange={(e) => setSelectedId(e.target.value)} aria-label="Select neighbourhood">{neighbourhoods.map((n) => <option key={n.id} value={n.id}>{n.name}</option>)}</select><button className="secondary-button" onClick={() => setDrawer(true)}><FileSearch size={16} /> Open evidence</button></>} />
+      <PageHeader eyebrow="Neighbourhood Deep Dive" title={selected.name} description="A complete, explainable view of demand, market position, feasibility, economics, evidence, risk, and assumptions." actions={<><select value={selectedId} onChange={(e) => setSelectedId(e.target.value)} aria-label="Select neighbourhood">{neighbourhoods.map((n) => <option key={n.id} value={n.id}>{n.name}</option>)}</select><button className="secondary-button" onClick={() => setDrawer(true)}><FileSearch size={16} /> Open evidence</button></>} />
       <Card className="profile-hero">
-        <div><span className={`action-tag ${selected.action.toLowerCase()}`}>{selected.action}</span><h2>{selected.name} is the strongest combined network and commercial growth opportunity.</h2><p>Growing family formation, strong connectivity demand, low Rogers penetration, practical fibre proximity, installation readiness, and competitive fibre activity support a coordinated response.</p><div className="reason-chips">{selected.reasons.map((r) => <span key={r}><Check size={13} />{r}</span>)}</div></div>
+        <div><span className={`action-tag ${selected.action.toLowerCase()}`}>{selected.action}</span><h2>{selected.name} is the strongest combined network and commercial growth opportunity.</h2><p>Growing family formation, strong connectivity demand, low provider penetration, practical fibre proximity, installation readiness, and competitive fibre activity support a coordinated response.</p><div className="reason-chips">{selected.reasons.map((r) => <span key={r}><Check size={13} />{r}</span>)}</div></div>
         <div className="hero-score"><strong>{selected.score}</strong><span>Composite opportunity</span><small>{selected.confidence}% confidence</small></div>
       </Card>
       <div className="profile-grid">
         <Card><span className="eyebrow">Population & housing</span><h2>{compact.format(selected.households)} current households</h2><p>2,400 additional homes planned • 7.8% forecast population growth • family formation above the regional average.</p><div className="chart-small"><ResponsiveContainer><AreaChart data={growthData}><defs><linearGradient id="growth" x1="0" y1="0" x2="0" y2="1"><stop offset="5%" stopColor="#10b981" stopOpacity={0.35}/><stop offset="95%" stopColor="#10b981" stopOpacity={0}/></linearGradient></defs><CartesianGrid strokeDasharray="3 3" vertical={false}/><XAxis dataKey="year"/><YAxis hide domain={["dataMin - 500", "dataMax + 300"]}/><Tooltip/><Area dataKey="households" stroke="#10b981" fill="url(#growth)" strokeWidth={3}/></AreaChart></ResponsiveContainer></div></Card>
-        <Card><span className="eyebrow">Rogers relationship</span><h2>Whitespace across the household</h2><p>Internet and wireless penetration remain below comparable-market benchmarks, creating multi-product potential.</p><div className="chart-small"><ResponsiveContainer><BarChart data={penetration} layout="vertical"><CartesianGrid strokeDasharray="3 3" horizontal={false}/><XAxis type="number" hide/><YAxis dataKey="product" type="category" width={84} tick={{fontSize: 11}}/><Tooltip/><Bar dataKey="Rogers" fill="#e31837" radius={[0,5,5,0]}/><Bar dataKey="Benchmark" fill="#475569" radius={[0,5,5,0]}/></BarChart></ResponsiveContainer></div></Card>
+        <Card><span className="eyebrow">Provider relationship</span><h2>Whitespace across the household</h2><p>Internet and wireless penetration remain below comparable-market benchmarks, creating multi-product potential.</p><div className="chart-small"><ResponsiveContainer><BarChart data={penetration} layout="vertical"><CartesianGrid strokeDasharray="3 3" horizontal={false}/><XAxis type="number" hide/><YAxis dataKey="product" type="category" width={84} tick={{fontSize: 11}}/><Tooltip/><Bar dataKey="Current" fill="#e31837" radius={[0,5,5,0]}/><Bar dataKey="Benchmark" fill="#475569" radius={[0,5,5,0]}/></BarChart></ResponsiveContainer></div></Card>
         <Card><span className="eyebrow">Network & serviceability</span><h2>Targeted upgrade is feasible</h2><div className="big-metric-row"><div><strong>82%</strong><span>network readiness</span></div><div><strong>Near</strong><span>fibre backhaul</span></div><div><strong>Ready</strong><span>installation capacity</span></div></div><p>Existing infrastructure can support an initial phase. A targeted upgrade is required for full development coverage.</p></Card>
         <Card><span className="eyebrow">Competition</span><h2>Early-mover window is narrowing</h2><div className="threat-meter"><span style={{width: `${selected.competitive}%`}} /><b>{selected.competitive}/100 urgency</b></div><p>Simulated competitor fibre construction, introductory pricing, and local promotion increase the cost of delay.</p><div className="risk-callout"><AlertTriangle size={18} /> Verified and inferred signals are separated in the evidence trace.</div></Card>
         <Card><span className="eyebrow">Consumer behaviours</span><h2>Connectivity-intensive households</h2><div className="behaviour-grid">{[["71%","family households"],["46%","work from home"],["31%","digital intent lift"],["High","whole-home Wi-Fi demand"]].map(([v,l])=><div key={l}><strong>{v}</strong><span>{l}</span></div>)}</div></Card>
@@ -523,7 +523,7 @@ function Recommendation({ approved, setApproved, analysisComplete, setAnalysisCo
       <PageHeader eyebrow="Agent Recommendation" title="Approve a targeted upgrade and coordinated neighbourhood launch" description="Brookfield North • Scenario B • Executive decision workspace" actions={<button className="primary-button" disabled={running} onClick={run}>{running ? <Activity className="spin" size={17}/> : <Sparkles size={17}/>} {running ? "Agents analysing…" : "Run Agent Analysis"}</button>} />
       <Card className="recommendation-banner">
         <div className="recommendation-icon"><Lightbulb /></div>
-        <div><span className="eyebrow">Growth Planning Supervisor recommendation</span><h2>Target the first major occupancy wave with a network-ready, multi-product household proposition.</h2><p>Begin developer and property-partner engagement, establish an early-mover acquisition campaign, prioritize Ignite plus mobile household offers, and stage installation capacity before occupancy.</p></div>
+        <div><span className="eyebrow">Growth Planning Supervisor recommendation</span><h2>Target the first major occupancy wave with a network-ready, multi-product household proposition.</h2><p>Begin developer and property-partner engagement, establish an early-mover acquisition campaign, prioritize home Internet plus mobile household offers, and stage installation capacity before occupancy.</p></div>
         <div className="confidence-badge"><strong>91%</strong><span>confidence</span></div>
       </Card>
       <Card>
@@ -561,7 +561,7 @@ function Recommendation({ approved, setApproved, analysisComplete, setAnalysisCo
         </Card>
       </div>
       <Card className="approval-card">
-        <div><span className="eyebrow">Human decision required</span><h2>Agents recommend. Rogers leaders decide.</h2><p>No capital, customer offer, campaign, or network action is executed by this demonstration.</p></div>
+        <div><span className="eyebrow">Human decision required</span><h2>Agents recommend. Business leaders decide.</h2><p>No capital, customer offer, campaign, or network action is executed by this demonstration.</p></div>
         <div className="approval-actions">
           <button className="primary-button" onClick={()=>decision("Approved for planning. Cross-functional workstreams are now available.")}><CheckCircle2 size={17}/>Approve for planning</button>
           <button className="secondary-button" onClick={()=>decision("Revision requested. The recommendation remains in review.")}>Request revision</button>
@@ -600,7 +600,7 @@ function Outcomes() {
   const portfolio = neighbourhoods.slice(0, 8);
   return (
     <>
-      <PageHeader eyebrow="Business Outcomes Centre" title="Connect every investment to measurable household growth" description="Illustrative planned-versus-actual-style metrics demonstrate how approved plans could be monitored. These are not Rogers results." />
+      <PageHeader eyebrow="Business Outcomes Centre" title="Connect every investment to measurable household growth" description="Illustrative planned-versus-actual-style metrics demonstrate how approved plans could be monitored. These are not actual company results." />
       <div className="outcome-tabs">{["Growth","Investment","Execution","Customer"].map((tab,index)=><div key={tab}><span>{tab}</span><strong>{[["1,642","new Internet customers"],["$9.8M","illustrative revenue"],["21 days","signal to plan"],["4.3","products per household"]][index][0]}</strong><small>{[["1,642","new Internet customers"],["$9.8M","illustrative revenue"],["21 days","signal to plan"],["4.3","products per household"]][index][1]}</small></div>)}</div>
       <div className="dashboard-grid">
         <Card className="span-2"><div className="card-header"><div><span className="eyebrow">Growth trajectory</span><h2>Planned versus illustrative actual acquisition</h2></div><Simulated/></div><div className="chart-large"><ResponsiveContainer><LineChart data={trend}><CartesianGrid strokeDasharray="3 3" vertical={false}/><XAxis dataKey="month"/><YAxis/><Tooltip/><Line type="monotone" dataKey="planned" stroke="#64748b" strokeWidth={2} strokeDasharray="6 4"/><Line type="monotone" dataKey="actual" stroke="#10b981" strokeWidth={3}/></LineChart></ResponsiveContainer></div></Card>
@@ -642,7 +642,7 @@ function WalkthroughVisual({index}:{index:number}) {
   if(index===2) return <div className="priority-visual"><div className="score-ring large" style={{"--score":"338deg"} as React.CSSProperties}><span><strong>94</strong><small>priority</small></span></div><h3>Brookfield North</h3><p>↑ 18 positions this analysis window</p></div>;
   if(index===3) return <div className="agent-orbit"><Bot className="centre"/>{agents.slice(1).map((a,i)=><span key={a.name} className={`orbit orbit-${i}`}><Check/>{a.shortName}</span>)}</div>;
   if(index===4) return <div className="scenario-mini">{scenarios.map(s=><div key={s.id} className={s.id==="B"?"active":""}><span>{s.id}</span><strong>{s.name}</strong><small>{money(s.revenue)} • {s.payback} mo.</small></div>)}</div>;
-  if(index===5) return <div className="recommendation-visual"><Target/><strong>UPGRADE + LAUNCH</strong><span>Ignite • Mobile • Wi-Fi</span><div><b>$4.7M</b><b>→</b><b>$12.8M</b></div></div>;
+  if(index===5) return <div className="recommendation-visual"><Target/><strong>UPGRADE + LAUNCH</strong><span>Internet • Mobile • Wi-Fi</span><div><b>$4.7M</b><b>→</b><b>$12.8M</b></div></div>;
   if(index===6) return <div className="approval-visual"><Bot/><ArrowRight/><button><CheckCircle2/>Human approval</button><ArrowRight/><ShieldCheck/></div>;
   if(index===7) return <div className="plan-visual">{workstreams.map((w,i)=><span key={w.name} style={{width:`${45+i*7}%`}}>{w.name}<i/></span>)}</div>;
   if(index===8) return <div className="outcome-visual"><TrendingUp/><strong>+1,642</strong><span>illustrative Internet customers</span><div><b>2.4x</b><b>88%</b><b>21 days</b></div></div>;
@@ -655,15 +655,15 @@ function Architecture() {
     ["Agent & orchestration", "Microsoft Foundry • Azure OpenAI • Agent Service patterns • tool calling • prompt management • evaluation • human approval", "agent"],
     ["Intelligence & modelling", "Azure Machine Learning • geospatial scoring • demand forecasting • propensity • scenarios • risk • optimisation • monitoring", "model"],
     ["Data foundation", "Microsoft Fabric • OneLake • Data Factory • Real-Time Intelligence • Eventstreams • Data Science • semantic models • Azure AI Search", "data"],
-    ["Rogers integration", "Proposed API integration: CRM • billing • product • order management • care • digital • network • serviceability • field operations • finance", "integration"],
+    ["Enterprise integration", "Proposed API integration: CRM • billing • product • order management • care • digital • network • serviceability • field operations • finance", "integration"],
     ["External data", "Configurable connectors: municipal open data • permits • housing • census • licensed real estate • competition • schools • transit", "external"],
     ["Security & governance", "Entra ID • managed identities • RBAC • Purview • Defender • Key Vault • Azure Monitor • audit • Responsible AI • retention", "security"],
   ];
   return (
     <>
-      <PageHeader eyebrow="Microsoft Architecture" title="A governed path from market signals to human-approved action" description="Illustrative target architecture. Proposed products, connectors, and Rogers integrations do not imply current production implementation." />
-      <Card className="architecture-flow"><div className="card-header"><div><span className="eyebrow">End-to-end flow</span><h2>Decision intelligence architecture</h2></div></div><div className="flow-row">{["Data sources","Fabric & OneLake","Geospatial & customer models","Foundry agent system","Scenarios & recommendations","Human approval","Rogers workflows","Outcome measurement"].map((item,i)=><div key={item}><span>{[<Database/>,<Layers3/>,<Gauge/>,<Bot/>,<Lightbulb/>,<ShieldCheck/>,<Route/>,<TrendingUp/>][i]}</span><strong>{item}</strong>{i<7&&<ChevronRight/>}</div>)}</div></Card>
-      <div className="architecture-layers">{layers.map(([title,content,type],i)=><Card key={title} className={`architecture-layer ${type}`}><div className="layer-number">{String(i+1).padStart(2,"0")}</div><div><span className="eyebrow">{type}</span><h2>{title}</h2><p>{content}</p>{type==="external"&&<div className="architecture-warning"><AlertTriangle/>Legal, privacy, procurement, and licensing validation required before production use.</div>}{type==="integration"&&<div className="architecture-warning"><AlertTriangle/>All Rogers integration points are proposed, not connected.</div>}</div></Card>)}</div>
+      <PageHeader eyebrow="Microsoft Architecture" title="A governed path from market signals to human-approved action" description="Illustrative target architecture. Proposed products, connectors, and enterprise integrations do not imply current production implementation." />
+      <Card className="architecture-flow"><div className="card-header"><div><span className="eyebrow">End-to-end flow</span><h2>Decision intelligence architecture</h2></div></div><div className="flow-row">{["Data sources","Fabric & OneLake","Geospatial & customer models","Foundry agent system","Scenarios & recommendations","Human approval","Enterprise workflows","Outcome measurement"].map((item,i)=><div key={item}><span>{[<Database/>,<Layers3/>,<Gauge/>,<Bot/>,<Lightbulb/>,<ShieldCheck/>,<Route/>,<TrendingUp/>][i]}</span><strong>{item}</strong>{i<7&&<ChevronRight/>}</div>)}</div></Card>
+      <div className="architecture-layers">{layers.map(([title,content,type],i)=><Card key={title} className={`architecture-layer ${type}`}><div className="layer-number">{String(i+1).padStart(2,"0")}</div><div><span className="eyebrow">{type}</span><h2>{title}</h2><p>{content}</p>{type==="external"&&<div className="architecture-warning"><AlertTriangle/>Legal, privacy, procurement, and licensing validation required before production use.</div>}{type==="integration"&&<div className="architecture-warning"><AlertTriangle/>All enterprise integration points are proposed, not connected.</div>}</div></Card>)}</div>
       <Card><div className="card-header"><div><span className="eyebrow">Integration services</span><h2>Secure batch, API, and streaming patterns</h2></div></div><div className="technology-grid">{["Azure API Management","Azure Functions","Azure Logic Apps","Azure Event Hubs","Microsoft Graph where appropriate","TM Forum Open APIs where relevant"].map(item=><div key={item}><Zap/><strong>{item}</strong></div>)}</div></Card>
     </>
   );
@@ -698,7 +698,7 @@ function Governance() {
   ];
   return (
     <>
-      <PageHeader eyebrow="Governance & Controls" title="Every recommendation is bounded, explainable, and auditable" description="The system observes and recommends. Authorized Rogers leaders and existing operating processes retain decision authority." />
+      <PageHeader eyebrow="Governance & Controls" title="Every recommendation is bounded, explainable, and auditable" description="The system observes and recommends. Authorized business leaders and existing operating processes retain decision authority." />
       <div className="governance-summary"><Card><ShieldCheck/><strong>12</strong><span>operating principles</span></Card><Card><FileSearch/><strong>100%</strong><span>evidence trace coverage</span></Card><Card><Users/><strong>2</strong><span>human approval gates</span></Card><Card><AlertTriangle/><strong>0</strong><span>autonomous material actions</span></Card></div>
       <div className="governance-layout">
         <Card><div className="card-header"><div><span className="eyebrow">Control dashboard</span><h2>Brookfield North recommendation</h2></div><Simulated/></div><div className="control-list">{controls.map(([name,status,detail])=><div key={name}><span className={`control-status ${status.toLowerCase()}`}>{status==="Pass"?<Check/>:<AlertTriangle/>}</span><span><strong>{name}</strong><small>{detail}</small></span><ChevronRight/></div>)}</div></Card>

@@ -1,7 +1,7 @@
 import type { Agent, MarketSignal, Neighbourhood, Scenario } from "./types";
 
 export const disclaimer =
-  "Concept demonstration using synthetic neighbourhood, customer, network, demographic, competitive, financial, and market data. Recommendations, financial values, coverage information, forecasts, and agent actions are simulated and are not Rogers forecasts or production decisions.";
+  "Concept demonstration using synthetic neighbourhood, customer, network, demographic, competitive, financial, and market data. Recommendations, financial values, coverage information, forecasts, and agent actions are simulated and are not company forecasts or production decisions.";
 
 export const neighbourhoods: Neighbourhood[] = [
   {
@@ -21,7 +21,7 @@ export const neighbourhoods: Neighbourhood[] = [
     network: 82,
     competitive: 88,
     penetration: 34,
-    igniteOpportunity: 92,
+    internetOpportunity: 92,
     wirelessOpportunity: 86,
     mobileAttach: 90,
     capitalEfficiency: 88,
@@ -29,7 +29,7 @@ export const neighbourhoods: Neighbourhood[] = [
     mduOpportunity: 72,
     x: 69,
     y: 26,
-    reasons: ["2,400 planned homes", "Low Rogers penetration", "Competitor fibre activity"],
+    reasons: ["2,400 planned homes", "Low provider penetration", "Competitor fibre activity"],
   },
   {
     id: "lakeshore",
@@ -48,7 +48,7 @@ export const neighbourhoods: Neighbourhood[] = [
     network: 68,
     competitive: 63,
     penetration: 38,
-    igniteOpportunity: 86,
+    internetOpportunity: 86,
     wirelessOpportunity: 76,
     mobileAttach: 79,
     capitalEfficiency: 81,
@@ -75,7 +75,7 @@ export const neighbourhoods: Neighbourhood[] = [
     network: 94,
     competitive: 57,
     penetration: 44,
-    igniteOpportunity: 78,
+    internetOpportunity: 78,
     wirelessOpportunity: 84,
     mobileAttach: 88,
     capitalEfficiency: 94,
@@ -102,7 +102,7 @@ export const neighbourhoods: Neighbourhood[] = [
     network: 87,
     competitive: 95,
     penetration: 51,
-    igniteOpportunity: 70,
+    internetOpportunity: 70,
     wirelessOpportunity: 68,
     mobileAttach: 71,
     capitalEfficiency: 84,
@@ -129,7 +129,7 @@ export const neighbourhoods: Neighbourhood[] = [
     network: 91,
     competitive: 52,
     penetration: 46,
-    igniteOpportunity: 74,
+    internetOpportunity: 74,
     wirelessOpportunity: 81,
     mobileAttach: 85,
     capitalEfficiency: 91,
@@ -156,7 +156,7 @@ export const neighbourhoods: Neighbourhood[] = [
     network: 61,
     competitive: 49,
     penetration: 32,
-    igniteOpportunity: 80,
+    internetOpportunity: 80,
     wirelessOpportunity: 67,
     mobileAttach: 72,
     capitalEfficiency: 73,
@@ -183,7 +183,7 @@ export const neighbourhoods: Neighbourhood[] = [
     network: 72,
     competitive: 76,
     penetration: 49,
-    igniteOpportunity: 69,
+    internetOpportunity: 69,
     wirelessOpportunity: 73,
     mobileAttach: 75,
     capitalEfficiency: 70,
@@ -210,7 +210,7 @@ export const neighbourhoods: Neighbourhood[] = [
     network: 90,
     competitive: 55,
     penetration: 47,
-    igniteOpportunity: 71,
+    internetOpportunity: 71,
     wirelessOpportunity: 69,
     mobileAttach: 73,
     capitalEfficiency: 89,
@@ -237,7 +237,7 @@ export const neighbourhoods: Neighbourhood[] = [
     network: 84,
     competitive: 89,
     penetration: 58,
-    igniteOpportunity: 64,
+    internetOpportunity: 64,
     wirelessOpportunity: 60,
     mobileAttach: 66,
     capitalEfficiency: 75,
@@ -264,7 +264,7 @@ export const neighbourhoods: Neighbourhood[] = [
     network: 88,
     competitive: 68,
     penetration: 53,
-    igniteOpportunity: 66,
+    internetOpportunity: 66,
     wirelessOpportunity: 78,
     mobileAttach: 82,
     capitalEfficiency: 86,
@@ -291,7 +291,7 @@ export const neighbourhoods: Neighbourhood[] = [
     network: 70,
     competitive: 45,
     penetration: 55,
-    igniteOpportunity: 52,
+    internetOpportunity: 52,
     wirelessOpportunity: 57,
     mobileAttach: 58,
     capitalEfficiency: 61,
@@ -318,7 +318,7 @@ export const neighbourhoods: Neighbourhood[] = [
     network: 55,
     competitive: 38,
     penetration: 57,
-    igniteOpportunity: 44,
+    internetOpportunity: 44,
     wirelessOpportunity: 48,
     mobileAttach: 50,
     capitalEfficiency: 42,
@@ -339,7 +339,7 @@ export const signals: MarketSignal[] = [
     confidence: 96,
     recency: "18 min ago",
     importance: "Critical",
-    product: "Ignite",
+    product: "Internet",
     agent: "Market Signal Agent",
     kind: "Opportunity",
     source: "Public",
@@ -365,7 +365,7 @@ export const signals: MarketSignal[] = [
   },
   {
     id: 3,
-    title: "Rogers mobile attach is 14 points below comparable areas",
+    title: "Mobile attach is 14 points below comparable areas",
     category: "Commercial",
     geography: "Cedar Heights",
     confidence: 91,
@@ -376,7 +376,7 @@ export const signals: MarketSignal[] = [
     kind: "Opportunity",
     source: "Internal",
     why: "Existing Internet households present a high-efficiency cross-sell audience.",
-    action: "Prepare an approved Ignite plus mobile household journey.",
+    action: "Prepare an approved Internet plus mobile household journey.",
     privacy: "Aggregated neighbourhood-level synthetic data; no customer records.",
   },
   {
@@ -397,13 +397,13 @@ export const signals: MarketSignal[] = [
   },
   {
     id: 5,
-    title: "Ignite serviceability expansion completed",
+    title: "Internet serviceability expansion completed",
     category: "Network",
     geography: "Maple Ridge",
     confidence: 97,
     recency: "3 hrs ago",
     importance: "High",
-    product: "Ignite",
+    product: "Internet",
     agent: "Network Readiness Agent",
     kind: "Opportunity",
     source: "Internal",
@@ -560,7 +560,7 @@ export const scenarios: Scenario[] = [
 ];
 
 export const productOpportunity = [
-  { name: "Ignite Internet", value: 5.8, colour: "#e11d48" },
+  { name: "Home Internet", value: 5.8, colour: "#e11d48" },
   { name: "Mobile lines", value: 4.1, colour: "#2563eb" },
   { name: "Premium Wi-Fi", value: 1.6, colour: "#8b5cf6" },
   { name: "Other products", value: 1.3, colour: "#10b981" },
@@ -583,7 +583,7 @@ export const workstreams = [
   { name: "Network", owner: "Regional Network Planning", progress: 42, gate: "Field design approval", tasks: "Validate design, confirm capital, reserve capacity, sequence upgrade" },
   { name: "Marketing", owner: "Consumer Growth Marketing", progress: 28, gate: "Campaign and privacy approval", tasks: "Define segments, propositions, launch timing, measurement" },
   { name: "Sales & channels", owner: "Omnichannel Sales", progress: 22, gate: "Channel readiness", tasks: "Prepare journeys, retail, call centre, field sales and lead routing" },
-  { name: "Product", owner: "Ignite & Wireless Product", progress: 35, gate: "Offer validation", tasks: "Confirm eligibility, approved offers, bundles and attach journeys" },
+  { name: "Product", owner: "Internet & Wireless Product", progress: 35, gate: "Offer validation", tasks: "Confirm eligibility, approved offers, bundles and attach journeys" },
   { name: "Finance", owner: "Consumer Finance", progress: 18, gate: "Investment envelope", tasks: "Validate assumptions, approve envelope, establish benefit tracking" },
   { name: "Governance", owner: "Data & AI Governance", progress: 48, gate: "Permitted-use review", tasks: "Privacy, data rights, model review, audit and monitoring controls" },
 ];
@@ -616,11 +616,11 @@ export const walkthrough = [
   },
   {
     title: "The agent recommends a coordinated network and commercial move.",
-    text: "A targeted network upgrade is paired with an early neighbourhood launch focused on Ignite, mobile attachment, and premium whole-home Wi-Fi.",
+    text: "A targeted network upgrade is paired with an early neighbourhood launch focused on home Internet, mobile attachment, and premium whole-home Wi-Fi.",
     metric: "$12.8M illustrative revenue",
   },
   {
-    title: "Agents recommend. Rogers leaders decide.",
+    title: "Agents recommend. Business leaders decide.",
     text: "The agent does not commit capital, launch a campaign, or change a network. Material decisions remain with authorized leaders and existing operating controls.",
     metric: "2 human approval gates",
   },
@@ -630,13 +630,13 @@ export const walkthrough = [
     metric: "6 coordinated workstreams",
   },
   {
-    title: "Rogers can connect every investment to measurable household growth.",
+    title: "The business can connect every investment to measurable household growth.",
     text: "The outcome centre tracks acquisition, mobile attachment, multi-product growth, investment, payback, market share, customer experience, and execution speed.",
     metric: "24 monitored outcomes",
   },
   {
     title: "From annual territory planning to continuous market intelligence.",
-    text: "Rogers can identify emerging markets earlier, align network and commercial investment, and measure whether each neighbourhood plan delivers the expected result.",
+    text: "The business can identify emerging markets earlier, align network and commercial investment, and measure whether each neighbourhood plan delivers the expected result.",
     metric: "Find • Validate • Approve • Measure",
   },
 ];
